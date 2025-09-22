@@ -3,80 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Portfolio Website 1</title>
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <!-- span+ul>(li>a)*5 Use of emmet for creating fast tags-->
         <span><a href="#">Emilian Timofei</a></span>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Passions</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#passions">Passions</a></li>
+            <li><a href="#contacts">Contacts</a></li>
         </ul>
     </nav>
 
     <header>
         <!--Header as a Hero!!!-->
-        <h1>Welcome to my Website!</h1>
-        <p>I'm exited that you are seeing this! It means you are looking for someone to recruit!.</p>
-        <h2>This is the first website of 8 that I created!</h2>
-        <p>In this whebsite I will focus on me and my passions.</p>
-        <section class="combination">
-            <h3>See me...</h3> <button>more!</button>
+        <section class="main-on-hero">
+            <h1>Welcome to my website!</h1>
+            <p>I'm exited that you are seeing this! It means you are looking for someone to recruit!</p>
+            <p>In this whebsite I will focus on me and my passions.</p>
+        </section>
+        <section class="combination shadow-box">
+            <a href="#passions">See more...</a>
         </section>
     </header>
     <main>
         <!--About and Passions with animations-->
-        <article>
-            <h2>About</h2>
-            <p>I'm a Developer. I'm actively searching for a job. This websites, that I started to develop, are unique. Hand maded <u>without</u> AI.</p>
-            <p>This website it's about my passions. Go further!</p>
+        <article id="about">
+            <section class="section_about">
+                <h2>About</h2>
+                <p>I'm a Developer. I'm actively searching for a job. This websites, that I started to develop, are unique. Hand maded <u style="color: #5500ff;">without</u> any A.I.</p>
+                <p>This website it's about my passions. Go further!</p>
+            </section>
+            <section class="section_about">
+                <img src="./Images/profile.jpg" alt="Photo of Emilian">
+            </section>
+            
         </article>
 
-        <article>
+        <article id="passions">
             <h2>
                 Passions
             </h2>
-            <div>
-                <h3>Basketball</h3>
-                <p>I love Basketball since I'm 15. It's the gratest sport that I know. Team maches are exiting. Make points it's all that metters. And the ability to win as a team it's not so evident, but only if I'm not in your team 😛!</p>
-                <img src="" alt="">
+            <div class="passion">
+                <section>
+                    <h3>Basketball</h3>
+                    <p>I love Basketball since I'm 15. It's the gratest sport that I know. Team maches are exiting. Make points it's all that metters. And the ability to win as a team it's not so evident, but only if I'm not in your team 😛!</p>
+                </section>
+                <section>
+                    <img src="" alt="">
+                </section>
             </div>
 
-            <div>
-                <h3>Read</h3>
-                <p>Reading is the best! The best part is when I'm in nature, reading, and the wind moves my hair and caress my skin. I like to read Philosophy, Psichology, Theology and Antropology. I started to see a patter between this subjects. I'm close to find something amazing.</p>
-                <img src="" alt="">
+            <div class="passion">
+                <section>
+                    <img src="" alt="">
+                </section>
+                <section>
+                    <h3>To Read</h3>
+                    <p class="even">Reading is the best! The best part is when I'm in nature, reading, and the wind moves my hair and caress my skin. I like to read Philosophy, Psichology, Theology and Antropology. I started to see a patter between this subjects. I'm close to find something amazing.</p>
+                </section>
             </div>
 
-            <div>
-                <h3>Videogames</h3>
-                <p>I know, videogames. I can talk about this subject for DAYS if it's the right game. I love to be merciless in PvP, MOBA and Shooting games. And of course I'm a 360° gamer because I use: smartphone, pc, xbox, playstation and more...</p>
-                <img src="" alt="">
+            <div class="passion">
+                <section>
+                    <h3>Videogames</h3>
+                    <p>I know, videogames. I can talk about this subject for DAYS if it's the right game. I love to be merciless in PvP, MOBA and Shooting games. And of course I'm a 360° gamer because I use: smartphone, pc, xbox, playstation and more...</p>
+                </section>
+                <section>
+                    <img src="" alt="">
+                </section>
             </div>
 
-            <div>
-                <h3>Write</h3>
-                <p>Do you think that it sounds wrong? I mean, after saying that I love reading, also saying that I love writing?! Yeah, it's like that I love writing poems, small stories and books. I writed down only one, but I don't have the money and the job to have the money to release it... Hope you offer me a job 😭!</p>
-                <img src="" alt="">
+            <div class="passion">
+                <section>
+                    <img src="" alt="">
+                </section>
+                <section>
+                    <h3>To Write</h3>
+                    <p class="even">Do you think that it sounds wrong? I mean, after saying that I love reading, also saying that I love writing?! Yeah, it's like that I love writing poems, small stories and books. I writed down only one, but I don't have the money and the job to have the money to release it... Hope you offer me a job 😭!</p>
+                </section>
             </div>
 
         </article>
 
     </main>
     <footer>
-        <h2>
+        <h2 id="contacts">
             Contacts
         </h2>
         <ul>
-            <li><a href="">WP</a></li>
-            <li><a href="">MAIL</a></li>
-            <li><a href="">GITHUB</a></li>
-            <li><a href="">LINKEDIN</a></li>
+            <li><a href="https://wa.me/+393508324707"><i class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href="mailto:timofeiemilian9000@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="https://github.com/anonymouspython96"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/timofeiemilian96/?locale=en_US"><i class="fa-brands fa-linkedin-in"></i></a></li>
         </ul>
     </footer>
+    <a href="#navbar" class="smooth-scrolling">
+        <i class="fa-solid fa-circle-chevron-up"></i>
+    </a>
+    <script src="script.js"></script>
 </body>
 </html>
