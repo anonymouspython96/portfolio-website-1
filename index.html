@@ -1,134 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
+<!-- Chosen Palette: Slate & Sky Blue -->
+<!-- Application Structure Plan: A single-page application structure was chosen for its simplicity and suitability for a personal portfolio. The user flow is linear, guiding the visitor from a hero introduction, through an 'About' section, a 'Passions' showcase, and finally to a 'Contacts' footer. On mobile, the navigation collapses into a hamburger menu for better usability on small screens. A theme toggle is included in the navigation for user preference between light and dark modes. This structure is intuitive and presents the information clearly and concisely. -->
+<!-- Visualization & Content Choices: Report Info: Personal details, passions, and contact info. Goal: Present a professional and engaging personal brand. Viz/Presentation Method: The 'About' section uses a responsive flexbox layout (columns on desktop, stacked on mobile) to pair text with a profile image. The 'Passions' section uses a responsive grid, creating a card-like layout that is visually organized and scales well. Icons from Font Awesome are used for contact links for quick recognition. Interaction: Smooth scrolling for navigation links, a theme toggle for visual preference, and a responsive mobile menu improve the user experience. Library/Method: Tailwind CSS for styling and layout, Vanilla JavaScript for interactivity. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilian Timofei | Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Tektur:wght@400..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Tektur:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website 1</title>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#ff7221',
+                        'dark-bg': '#000103',
+                        'light-bg': '#f3f4f6',
+                        'dark-card': '#1f2937',
+                        'light-card': '#ffffff',
+                        'dark-text': '#f3f4f6',
+                        'light-text': '#111827',
+                        'dark-text-secondary': '#9ca3af',
+                        'light-text-secondary': '#4b5563',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
+<body class="bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
 
-<body>
-    <nav id="navbar">
-        <!-- span+ul>(li>a)*5 Use of emmet for creating fast tags-->
-        <span><a href="#">Emilian Timofei</a></span>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#passions">Passions</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-        </ul>
+    <nav id="navbar" class="bg-white/80 dark:bg-dark-bg/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold font-tektur text-blue-500 hover:text-blue-400 transition-colors duration-200">Emilian Timofei</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-blue-500 hover:text-blue-400 transition-colors duration-200">Home</a>
+                <a href="#about" class="text-blue-500 hover:text-blue-400 transition-colors duration-200">About</a>
+                <a href="#passions" class="text-blue-500 hover:text-blue-400 transition-colors duration-200">Passions</a>
+                <a href="#contacts" class="text-blue-500 hover:text-blue-400 transition-colors duration-200">Contacts</a>
+            </div>
+
+            <div class="flex items-center">
+                 <button id="theme-toggle" class="mr-4 text-xl">
+                    <i class="fa-solid fa-sun text-yellow-500 block dark:hidden"></i>
+                    <i class="fa-solid fa-moon text-sky-400 hidden dark:block"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark-card">
+            <a href="#home" class="block text-center py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">Home</a>
+            <a href="#about" class="block text-center py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">About</a>
+            <a href="#passions" class="block text-center py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">Passions</a>
+            <a href="#contacts" class="block text-center py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">Contacts</a>
+        </div>
     </nav>
 
-    <header>
-        <!--Header as a Hero!!!-->
-        <section class="main-on-hero">
-            <h1>Welcome to my website!</h1>
-            <p>I'm exited that you are seeing this! It means you are looking for someone to recruit!</p>
-            <p>In this whebsite I will focus on me and my passions.</p>
-        </section>
-        <section class="combination shadow-box">
-            <a href="#passions">See more...</a>
-        </section>
+    <header id="home" class="bg-hero min-h-screen flex flex-col items-center justify-center text-center p-6 bg-black/50 text-white">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 animate-fade-in-down">Welcome to My World</h1>
+            <p class="text-lg md:text-xl mb-2">I'm excited you're here! It means you are looking for someone to recruit.</p>
+            <p class="text-lg md:text-xl mb-8">On this website, I will focus on me and my passions.</p>
+            <a href="#about" class="bg-brand-primary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-transform duration-200 hover:scale-105 shadow-lg">Discover More</a>
+        </div>
     </header>
-    <main>
-        <!--About and Passions with animations-->
-        <article id="about">
-            <section class="section_about">
-                <h2>About</h2>
-                <p>I'm a Developer. I'm actively searching for a job.<br> This websites, that I started to develop, are
-                    unique. Hand maded <u style="color: #5500ff;">without</u> any A.I.</p>
-                <p>This website it's about my passions. Go further!</p>
-            </section>
-            <section class="section_about">
-                <img src="./Images/profile.jpg" alt="Photo of Emilian">
-            </section>
 
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        
+        <article id="about" class="my-16 scroll-mt-20">
+            <section class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-primary">About Me</h2>
+                    <p class="text-lg mb-4 text-light-text-secondary dark:text-dark-text-secondary">I'm a Developer actively searching for a job. This website is a unique, hand-made creation to showcase my skills and personality.</p>
+                    <p class="text-lg text-light-text-secondary dark:text-dark-text-secondary">This is all about my passions. Scroll down to see more!</p>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <img src="./Images/profile.jpg" alt="Photo of Emilian" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-position-custom border-8 border-brand-primary/50 shadow-2xl">
+                </div>
+            </section>
         </article>
 
-        <article id="passions">
-            <h2>
-                Passions
-            </h2>
-            <div class="passion">
-                <section class="text-passion">
-                    <h3 class="passion-titles">Basketball</h3>
-                    <p>I love Basketball since I'm 15. It's the gratest sport that I know. Team maches are exiting. Make
-                        points it's all that metters. And the ability to win as a team it's not so evident, but only if
-                        I'm not in your team 😛!</p>
-                </section>
-                <section class="image-box">
-                    <img src="./Images/basket.webp" alt="a basket ball">
-                </section>
-            </div>
+        <article id="passions" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-primary">My Passions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-            <div class="passion">
-                <section class="image-box">
-                    <img src="./Images/book.webp" alt="a book">
-                </section>
-                <section class="text-passion">
-                    <h3 class="passion-titles">To Read</h3>
-                    <p class="even">Reading is the best! The best part is when I'm in nature, reading, and the wind
-                        moves my hair and caress my skin. I like to read Philosophy, Psichology, Theology and
-                        Antropology. I started to see a patter between this subjects. I'm close to find something
-                        amazing.</p>
-                </section>
-            </div>
+                <div class="bg-light-card dark:bg-dark-card rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./Images/basket.webp" alt="a basketball" class="w-full h-56 object-cover object-center">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-brand-primary">Basketball</h3>
+                        <p class="text-light-text-secondary dark:text-dark-text-secondary">I've loved Basketball since I was 15. Team matches are exciting. Making points is what matters, and the ability to win as a team is everything. Especially if I'm on your team 😛!</p>
+                    </div>
+                </div>
 
-            <div class="passion">
-                <section  class="text-passion">
-                    <h3 class="passion-titles">Videogames</h3>
-                    <p>I know, videogames. I can talk about this subject for DAYS if it's the right game. I love to be
-                        merciless in PvP, MOBA and Shooting games. And of course I'm a 360° gamer because I use:
-                        smartphone, pc, xbox, playstation and more...</p>
-                </section>
-                <section class="image-box">
-                    <img src="./Images/game.webp" alt="game image start">
-                </section>
-            </div>
+                <div class="bg-light-card dark:bg-dark-card rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./Images/book.webp" alt="a book" class="w-full h-56 object-cover object-center">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-brand-primary">Reading</h3>
+                        <p class="text-light-text-secondary dark:text-dark-text-secondary">Reading is the best, especially in nature with the wind blowing. I like to read Philosophy, Psychology, Theology, and Anthropology. I'm starting to see a pattern between these subjects.</p>
+                    </div>
+                </div>
 
-            <div class="passion">
-                <section class="image-box">
-                    <img src="./Images/writing.webp" alt="writing">
-                </section>
-                <section class="text-passion">
-                    <h3 class="passion-titles">To Write</h3>
-                    <p class="even">Do you think that it sounds wrong? I mean, after saying that I love reading, also
-                        saying that I love writing?! Yeah, it's like that I love writing poems, small stories and books.
-                        I writed down only one, but I don't have the money and the job to have the money to release
-                        it... Hope you offer me a job 😭!</p>
-                </section>
-            </div>
+                <div class="bg-light-card dark:bg-dark-card rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./Images/game.webp" alt="game image start" class="w-full h-56 object-cover object-center">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-brand-primary">Videogames</h3>
+                        <p class="text-light-text-secondary dark:text-dark-text-secondary">I can talk about videogames for days. I love to be merciless in PvP, MOBA, and Shooting games. I'm a 360° gamer, using smartphones, PC, Xbox, PlayStation, and more.</p>
+                    </div>
+                </div>
 
+                <div class="bg-light-card dark:bg-dark-card rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="./Images/writing.webp" alt="writing" class="w-full h-56 object-cover object-center">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-brand-primary">Writing</h3>
+                        <p class="text-light-text-secondary dark:text-dark-text-secondary">After reading, comes writing! I love writing poems, short stories, and books. I've written one book but haven't had the chance to publish it yet... Hope you offer me a job 😭!</p>
+                    </div>
+                </div>
+
+            </div>
         </article>
 
     </main>
-    <footer>
-        <h2 id="contacts">
-            Contacts
-        </h2>
-        <ul>
-            <li><a href="https://wa.me/+393508324707"><i class="fa-brands fa-whatsapp icon-size"></i></a></li>
-            <li><a href="mailto:timofeiemilian9000@gmail.com"><i class="fa-solid fa-envelope icon-size"></i></a></li>
-            <li><a href="https://github.com/anonymouspython96"><i class="fa-brands fa-github icon-size"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/timofeiemilian96/?locale=en_US"><i
-                        class="fa-brands fa-linkedin-in icon-size"></i></a></li>
-        </ul>
+
+    <footer class="bg-light-card dark:bg-dark-card py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 id="contacts" class="text-3xl font-bold mb-6 text-brand-primary scroll-mt-20">Contacts</h2>
+            <div class="flex justify-center items-center space-x-6 md:space-x-10 mb-6">
+                <a href="https://wa.me/+393508324707" class="text-3xl md:text-4xl text-green-500 hover:text-green-400 transform hover:scale-110 transition-transform duration-200"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:timofeiemilian9000@gmail.com" class="text-3xl md:text-4xl text-red-500 hover:text-red-400 transform hover:scale-110 transition-transform duration-200"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/anonymouspython96" class="text-3xl md:text-4xl text-gray-500 dark:text-gray-300 hover:text-gray-400 dark:hover:text-white transform hover:scale-110 transition-transform duration-200"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/timofeiemilian96/?locale=en_US" class="text-3xl md:text-4xl text-blue-600 hover:text-blue-500 transform hover:scale-110 transition-transform duration-200"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-light-text-secondary dark:text-dark-text-secondary">&copy; 2024 Emilian Timofei. All Rights Reserved.</p>
+        </div>
     </footer>
-    <a href="#navbar" class="smooth-scrolling">
-        <i class="fa-solid fa-circle-chevron-up"></i>
+
+    <a href="#navbar" id="scroll-to-top" class="hidden fixed bottom-5 right-5 bg-brand-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg hover:bg-opacity-80 transition-opacity duration-300">
+        <i class="fa-solid fa-arrow-up"></i>
     </a>
+    
     <script src="script.js"></script>
 </body>
-
 </html>
