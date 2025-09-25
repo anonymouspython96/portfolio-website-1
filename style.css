@@ -1,45 +1,54 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
-:root{
+
+:root {
     --color-text: whitesmoke;
     --color-hover: #ff7221;
     --color-background: #000103;
 }
 
-body{
+body {
     background-color: var(--color-background);
+    font-family: "Delius", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-nav{
+nav {
     background-color: var(--color-background);
     color: var(--color-text);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 2.5rem 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
-nav>span>a{
+
+nav>span>a {
     text-decoration: none;
     color: var(--color-text);
 }
-nav>span>a:hover{
+
+nav>span>a:hover {
     color: var(--color-hover);
 }
-nav>ul{
+
+nav>ul {
     display: flex;
     gap: 2.5rem;
     list-style: none;
 }
-nav>ul>li>a{
+
+nav>ul>li>a {
     text-decoration: none;
     color: var(--color-text);
 }
-nav>ul>li>a:hover{
+
+nav>ul>li>a:hover {
     color: #ff7221;
 }
 
@@ -53,35 +62,48 @@ header {
     display: flex;
     align-items: center;
     line-height: 5rem;
-    padding-top: 5rem;
+    padding-top: 7rem;
     gap: 4rem;
     flex-direction: column;
+    font-family: "Delius", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     color: var(--color-hover);
 }
-h1{
-    font-size: 5rem;
+
+h1 {
+    font-size: 6.8rem;
     padding-bottom: 1rem;
 }
-h2{
-    font-size: 3rem;
+
+h2 {
+    font-size: 3.8rem;
 }
-p{
-    font-size: 2rem;
+
+p {
     padding-bottom: 1rem;
     color: var(--color-text);
 }
-.main-on-hero>p{
+
+.main-on-hero>p {
     padding-left: 3rem;
+    font-size: 2.8rem;
 }
-.main-on-hero>p:last-child{
+
+.main-on-hero>p:last-child {
     padding-left: 6rem;
 }
-.combination{
+
+.combination {
     font-size: 3rem;
 }
-.combination>a{
+
+.combination>a {
     background-color: var(--color-background);
     color: var(--color-text);
     border-radius: 1.8rem;
@@ -89,90 +111,148 @@ p{
     padding: 2.5rem 5rem;
     border: 0.25rem solid var(--color-text);
 }
-.combination>a:hover{
+
+.combination>a:hover {
     color: var(--color-hover);
     border: solid 0.25rem var(--color-hover);
     background-color: var(--color-text);
 }
-#about{
+
+#about {
     display: flex;
 }
-#about>.section_about{
-    padding: 5rem;
+
+
+#about>.section_about {
+    padding: 3rem 6rem 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 #about>.section_about>h2,
-#about>.section_about>p{
+#about>.section_about>p {
     text-align: right;
     padding: 1.2rem;
 }
-#about>.section_about>img{
-    width: 25%;
+
+#about>.section_about>img {
+    min-width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
     align-self: center;
-    border-radius: 3rem;
     border: var(--color-titles) solid 0.5rem;
 }
-#passions>h2{
+
+.section_about>p {
+    font-size: 2.2rem;
+}
+
+#passions>h2 {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5rem 0;
 }
-#passions>.passion{
+
+.passion>section>p {
+    font-size: 2rem;
+}
+
+#passions>.passion {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    gap: 5rem;
+    gap: 20rem;
     margin: 0 auto;
-    width: 50%;
+    min-width: 50%;
 }
-.even{
+
+.passion {
+    padding: 2rem 0;
+}
+
+.text-passion,
+.image-box>img:nth-of-type(odd) {
+    padding: 1.5rem 6rem;
+}
+
+.passion-titles {
+    font-size: 2.8rem;
+}
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    height: 30rem;
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+.image-box > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    padding-top: 0;
+}
+
+.even {
     text-align: right;
 }
-.passion>section>h3{
+
+.passion>section>h3 {
     padding: 3rem;
     display: flex;
     justify-content: center;
-    font-size: 1.8rem;
 }
-footer{
+
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5rem;
+    padding-top: 7rem;
 }
 
-footer > ul {
+footer>ul {
     display: flex;
     gap: 10rem;
     padding: 5rem;
 }
-footer > ul > li {
+
+footer>ul>li {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.icon-size,
+footer>h2 {
+    font-size: 3.8rem;
+}
+
 .fa-whatsapp {
     color: #0bb540;
-    font-size: 1.8rem;
 }
+
 .fa-envelope {
     color: #db4130;
-    font-size: 1.8rem;
 }
+
 .fa-github {
     color: white;
-    font-size: 1.8rem;
 }
+
 .fa-linkedin-in {
     color: #0b66bf;
-    font-size: 1.8rem;
 }
-.smooth-scrolling{
+
+.smooth-scrolling {
     display: absolute;
     z-index: 999;
     font-size: 3rem;
